@@ -1,4 +1,4 @@
-package com.gkj.kafka;
+package com.gkj.kafka.demo;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -22,7 +22,7 @@ public class ProducerDemoWithCallback {
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
     //Send data
-        for (int i =0; i< 10; i++){
+        for (int i =0; i< 10000; i++){
             //Create a producer record
             ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic", "Hello World "+Integer.toString(i));
             producer.send(record, new Callback() {
